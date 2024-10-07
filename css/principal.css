@@ -16,3 +16,43 @@ th, td {
     border: 1px solid rgb(222, 231, 140); /* Cambia el tipo de borde de las celdas */
     padding: 8px; /* Opcional: agrega espacio dentro de las celdas */
 }
+img {
+    /*width: 300px;
+    height: 300px;*/
+}
+
+td {
+    text-align: center;
+    /*width: 300px;*/
+}
+
+.zombie {
+    background-color: rgb(24, 170, 24);
+    color: white;
+}
+
+.golem {
+    background-color: rgb(8, 116, 143);
+    color: white;
+}
+
+.esqueleto {
+    background-color: yellow;
+    color: black;
+}
+
+.caido {
+    background-color: rgb(180, 24, 24);
+    color: white;
+}
+
+.bestia {
+    background-color: rgb(82, 6, 82);
+    color: white;
+}	
+
+.cualquiera {
+    background-color: rgb(163, 161, 161);
+    color: black;
+}
+

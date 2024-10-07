@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/principal.css">
     </head>
     <body>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
         <script src="js/principal.js"></script>
         <navbar>
 
@@ -12,28 +17,35 @@
         <h2> Este es un buscador de reptantes y otras criaturas del <a href="https://fedorian.com/atrum-arena">Atrum</a></h2>
         <div id="buscador">
             <div id="instrucciones">
-                <input type="search" id="searchNombreReptante" placeholder="Nombre del reptante">
-                <select id="searchExpansion">
-                    <option>Todas las expansiones</option>
-                    <option>Primer paquete de inicio</option>
-                    <option>Primer sobre</option>
-                    <option>Primeros Exclusivos</option>
-                    <option>Capitulo I</option>
-                    <option>Capitulo II</option>
-                </select>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="search" id="searchNombreReptante" placeholder="Nombre del reptante">
+                        <select class="form-select --bs-secondary-color" id="searchExpansion">
+                        <option >Todas las expansiones</option>
+                        <option>Primera Edición</option>
+                        <option>Primer Edición - Exclusiva</option>
+                        <option>Capítulo I</option>
+                        <option>Capítulo II</option>
+                    </select>
+                </div>
+                
                 <div>  
                     <h3>Buscar por nombre de habilidades</h3>
-                    <input type="search" id="searchPoder0" placeholder="costo 0">
-                <input type="search" id="searchPoder1" placeholder="costo 1">
-                <input type="search" id="searchPoder2" placeholder="costo 2">
-                <input type="search" id="searchPoder3" placeholder="costo 3">
-                <input type="search" id="searchPoder4" placeholder="costo 4">
+                    <div class="input-group mb-2">
+                        <input class="form-control" type="search" id="searchPoder0" placeholder="costo 0">
+                        <input class="form-control" type="search" id="searchPoder1" placeholder="costo 1">
+                        <input class="form-control" type="search" id="searchPoder2" placeholder="costo 2">
+                        <input class="form-control" type="search" id="searchPoder3" placeholder="costo 3">
+                        <input class="form-control" type="search" id="searchPoder4" placeholder="costo 4">
+                    </div>
                 </div>
             </div>
             <br>
-            <div> <input type="button" value="Buscar" onclick="cargar(); "></div>
-            <div id="respuestas">
+            <div> <input  class="btn btn-outline-light" type="button" value="Buscar" onclick="cargar(); "></div>
+            <div class="container">
+                <p id="cantMostrados"></p>
+                <div class="row" id="respuestas">
 
+                </div>
             </div>
         </div>
     </body>
