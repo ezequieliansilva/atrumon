@@ -584,7 +584,7 @@
       }
     },
     {
-      "nombre": "Flong Rostropunzante",
+      "nombre": "Ogmar Brazoderoble",
       "wiki": "https://atrum-arena.fandom.com/es/wiki/Ogmar_Brazoderoble",
       "imagen":"imagenes/Ogmar_Brazoderoble.webp",
       "edición": "Primera Edición",
@@ -656,7 +656,7 @@
         "efecto_1": "Explota 1 Esbirro de un oponente.",
         "nombre_0": "Placas de Refuerzo",
         "costo_0": "0",
-        "esbirro_0": "cualquiera",
+        "esbirro_0": "Golem",
         "tipo_0": "Táctico",
         "efecto_0": "Refuerza 1 un Poder de Ataque o Defensa."
       }
