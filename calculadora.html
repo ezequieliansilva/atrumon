@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/principal.css">
+        <title>Calculadora</title>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="js/calculadora.js"></script>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Calculadora</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <!-- Agrega más elementos de navegación aquí -->
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="opciones">
+                <h1 class="mt-4">Calculadora de partidas</h1>
+                <h2>Usalo para contar las vidas de los jugadores durante las partidas</h2>
+                <div class="input-group mb-3">
+                    <label for="numeroJugadores" class="form-select-label">¿Cuantos jugadores?</label>
+                    <select class="form-select" id="numeroJugadores" onchange="deidadCalculo(this.value); jugadoresVisibles(this.value)">
+                        <option selected>1</option>
+                        <option >2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                </select>
+                </div>
+                <div class="input-group mb-3">
+                    <label class="form-check-label mb-3" for="deidad">¿Quieres jugar con deidades?</label>
+                    <input class="form-check-input mb-3" type="checkbox" id="deidadCheck" onclick="deidadVisible()">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="form-check-label mb-3" for="deidad">¿Con tiempo?</label>
+                    <input class="form-check-input mb-3" type="checkbox" id="tiempoCheck" onclick="tiempoVisible()">
+
+                </div>
+                <input type="button" class="btn btn-outline-light" value="Iniciar" onclick="iniciar();">
+            </div>
+            <div id="calculadora">
+                <div class="ocultables card" id="tiempo" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Tiempo</h5>
+                      <p class="h2 card-text"><button class="btn btn-primary" onclick="controlTiempo('deidadVida',true, false)">►   </button>
+                        <span id="tiempoRestante">40:00</span> 
+                        <button onclick="reinicio()" class="btn btn-primary">Reiniciar</button>
+                      </p>
+                    </div>
+                  </div>
+                <div  >
+                    <div class="ocultables card" id="deidad" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Deidad</h5>
+                          <p class="h2 card-text"><button class="btn btn-primary" onclick="vida('deidadVida',true, true)">+</button> <span id="deidadVida">30</span> <button onclick="vida('deidadVida',false, true)" class="btn btn-primary">-</button></p>
+                        </div>
+                      </div>
+                </div>
+                <div id="jugadores">
+                    <div class="card" id="jugador1" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Jugador 1</h5>
+                            <p class="h2 card-text"><button class="btn btn-primary" onclick="vida('vida1',true,false)">+</button> <span id="vida1">10</span> <button onclick="vida('vida1',false,false)" class="btn btn-primary">-</button> <button class="ocultables btn btn-primary" id="diez1" onclick="diez('vida1',this.id)">10</button></p>
+                        </div>
+                    </div>
+                    <div class=" card" id="jugador2" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Jugador 2</h5>
+                            <p class="h2 card-text"><button class="btn btn-primary" onclick="vida('vida2',true,false)">+</button> <span id="vida2">10</span> <button onclick="vida('vida2',false,false)" class="btn btn-primary">-</button> <button id="diez2" class="ocultables btn btn-primary" onclick="diez('vida2',this.id)">10</button></p>
+                        </div>
+                    </div>
+                    <div class="ocultables card" id="jugador3" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Jugador 3</h5>
+                            <p class="h2 card-text"><button class="btn btn-primary" onclick="vida('vida3',true,false)">+</button> <span id="vida3">10</span> <button onclick="vida('vida3',false,false)" class="btn btn-primary">-</button> <button id="diez3" class="ocultables btn btn-primary" onclick="diez('vida3',this.id)">10</button></p>
+                        </div>
+                    </div>
+                    <div class="ocultables card" id="jugador4" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Jugador 4</h5>
+                            <p class="h2 card-text"><button class="btn btn-primary" onclick="vida('vida4',true,false)">+</button> <span id="vida4">10</span> <button onclick="vida('vida4',false,false)" class="btn btn-primary">-</button> <button id="diez4" class="ocultables btn btn-primary" onclick="diez('vida4',this.id)">10</button></p>
+                        </div>
+                    </div>
+                    <div class="ocultables card" id="jugador5" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Jugador 5</h5>
+                            <p class="h2 card-text"><button class="btn btn-primary" onclick="vida('vida5',true,false)">+</button> <span id="vida5">10</span> <button onclick="vida('vida5',false,false)" class=" btn btn-primary">-</button> <button id="diez5" class=" ocultables btn btn-primary" onclick="diez('vida5',this.id)">10</button></p>
+                        </div>
+                    </div>
+                    <div class="ocultables card" id="jugador6" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Jugador 6</h5>
+                            <p class="h2 card-text"><button class="btn btn-primary" onclick="vida('vida6',true,false)">+</button> <span id="vida6">10</span> <button onclick="vida('vida6',false,false)" class="btn btn-primary">-</button> <button id="diez6" class="ocultables btn btn-primary" onclick="diez('vida6',this.id)">10</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="button" id="terminarButton" style="display:none" class=" btn btn-outline-light" value="Terminar" onclick="terminar();">
+        </div>
+    </body>
+</html>

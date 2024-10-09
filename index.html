@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/principal.css">
+        <title>Atrumon</title>
     </head>
     <body>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
         <script src="js/principal.js"></script>
-        <navbar>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Atrumon</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="calculadora.html">Calculadora <span class="sr-only">(current)</span></a>
+                    </li>
+                    <!-- Agrega más elementos de navegación aquí -->
+                </ul>
+            </div>
+        </nav>
 
-        </navbar>
-        <h1>Atrumon</h1>
-        <h2> Este es un buscador de reptantes y otras criaturas del <a href="https://fedorian.com/atrum-arena">Atrum</a></h2>
-        <div id="buscador">
-            <div id="instrucciones">
-                <div class="input-group mb-3">
-                    <input class="form-control" type="search" id="searchNombreReptante" placeholder="Nombre del reptante">
+        <div class="container">
+            <h1 class="mt-4">Atrumon</h1>
+            <h2>Este es un buscador de reptantes y otras criaturas del <a href="https://fedorian.com/atrum-arena">Atrum</a></h2>
+            <div id="buscador">
+                <div id="instrucciones">
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="search" id="searchNombreReptante" placeholder="Nombre del reptante">
                         <select class="form-select --bs-secondary-color" id="searchExpansion">
-                        <option >Todas las expansiones</option>
-                        <option>Primera Edición</option>
-                        <option>Primer Edición - Exclusiva</option>
-                        <option>Capítulo I</option>
-                        <option>Capítulo II</option>
-                    </select>
-                </div>
-                
-                <div>  
-                    <h3>Buscar por nombre de habilidades</h3>
-                    <div class="input-group mb-2">
-                        <input class="form-control" type="search" id="searchPoder0" placeholder="costo 0">
-                        <input class="form-control" type="search" id="searchPoder1" placeholder="costo 1">
-                        <input class="form-control" type="search" id="searchPoder2" placeholder="costo 2">
-                        <input class="form-control" type="search" id="searchPoder3" placeholder="costo 3">
-                        <input class="form-control" type="search" id="searchPoder4" placeholder="costo 4">
+                            <option>Todas las expansiones</option>
+                            <option>Primera Edición</option>
+                            <option>Primer Edición - Exclusiva</option>
+                            <option>Capítulo I</option>
+                            <option>Capítulo II</option>
+                        </select>
+                    </div>
+                    
+                    <div>  
+                        <h3>Buscar por nombre de habilidades</h3>
+                        <div class="input-group mb-2">
+                            <input class="form-control" type="search" id="searchPoder0" placeholder="costo 0">
+                            <input class="form-control" type="search" id="searchPoder1" placeholder="costo 1">
+                            <input class="form-control" type="search" id="searchPoder2" placeholder="costo 2">
+                            <input class="form-control" type="search" id="searchPoder3" placeholder="costo 3">
+                            <input class="form-control" type="search" id="searchPoder4" placeholder="costo 4">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div> <input  class="btn btn-outline-light" type="button" value="Buscar" onclick="cargar(); "></div>
-            <div class="container">
-                <p id="cantMostrados"></p>
-                <div class="row" id="respuestas">
-
+                <br>
+                <div> 
+                    <input class="btn btn-outline-light" type="button" value="Buscar" onclick="cargar();">
+                </div>
+                <div class="container">
+                    <p id="cantMostrados"></p>
+                    <div class="row" id="respuestas">
+                        <!-- Resultados de la búsqueda -->
+                    </div>
                 </div>
             </div>
         </div>

@@ -67,24 +67,128 @@ function cargarReptantes(reptantes){
     var expansion = "";
     var mostrados = 0;
     var colorPoderes = ["cualquiera", "cualquiera", "cualquiera", "cualquiera", "cualquiera"];
-    if(filtrosCargados.expansion !== "Todas las expansiones"){
-        expansion = filtrosCargados.expansion;
-    }
+    expansion = filtrosCargados.expansion;
     reptantesVistos.innerHTML = "<br>";
 
+    function normalizarCadena(cadena) {
+        return cadena.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
     reptantes.forEach(reptante => {
 
-        if( reptante.nombre.includes(filtrosCargados.nombre) && reptante.poderes.nombre_0.includes(filtrosCargados.poder0) && reptante.poderes.nombre_1.includes(filtrosCargados.poder1) && reptante.poderes.nombre_2.includes(filtrosCargados.poder2) && reptante.poderes.nombre_3.includes(filtrosCargados.poder3) && reptante.poderes.nombre_4.includes(filtrosCargados.poder4) && reptante.edición.includes(expansion)){
+        if (
+            normalizarCadena(reptante.nombre).includes(normalizarCadena(filtrosCargados.nombre)) &&
+            normalizarCadena(reptante.poderes.nombre_0).includes(normalizarCadena(filtrosCargados.poder0)) &&
+            normalizarCadena(reptante.poderes.nombre_1).includes(normalizarCadena(filtrosCargados.poder1)) &&
+            normalizarCadena(reptante.poderes.nombre_2).includes(normalizarCadena(filtrosCargados.poder2)) &&
+            normalizarCadena(reptante.poderes.nombre_3).includes(normalizarCadena(filtrosCargados.poder3)) &&
+            normalizarCadena(reptante.poderes.nombre_4).includes(normalizarCadena(filtrosCargados.poder4)) &&
+            (normalizarCadena(reptante.edición) == normalizarCadena(expansion) || normalizarCadena(expansion) == "todas las expansiones")
+        ){
             
             colorPoderes[0] = asignarColor(reptante.poderes.esbirro_0);
             colorPoderes[1] = asignarColor(reptante.poderes.esbirro_1);
             colorPoderes[2] = asignarColor(reptante.poderes.esbirro_2);
             colorPoderes[3] = asignarColor(reptante.poderes.esbirro_3);
             colorPoderes[4] = asignarColor(reptante.poderes.esbirro_4);
-            reptantesVistos.innerHTML += "<div class='col-md-4 mb-4'> <table class='table table-dark'> <tr> <th>  Nombre  </th> <td> <a href="+reptante.wiki+">"+ reptante.nombre+" <br> <img class='img-thumbnail' src="+reptante.imagen+" alt="+reptante.nombre+" ></a></td> </tr> <tr> <th> Edición </th> <td>"+ reptante.edición+" </td> </tr> <tr> <th> Número </th> <td>"+ reptante.número+" </td> </tr> <tr> <th> Rareza </th> <td>"+ reptante.rareza+" </td> </tr> <tr> <th> Especialidad </th> <td class="+asignarColor(reptante.especialidad)+">"+ reptante.especialidad+" </td> </tr> <tr> <th> Artista </th> <td>"+ reptante.artista+" </td> </tr> <tr> <th> Poder costo 4 </th> <td class="+colorPoderes[4]+">"+ reptante.poderes.nombre_4 +" ("+ reptante.poderes.tipo_4 +")"+" </td> </tr> <tr> <th> Tipo Esbirro </th> <td class="+colorPoderes[4]+">"+ reptante.poderes.esbirro_4+" </td> </tr> <tr> <th> Descripción </th> <td class="+colorPoderes[4]+"> "+reptante.poderes.efecto_4+" </td> </tr> <tr> <th> Poder costo 3 </th> <td class="+colorPoderes[3]+">"+ reptante.poderes.nombre_3 +" ("+ reptante.poderes.tipo_3 +")"+" </td> </tr> <tr> <th> Tipo Esbirro </th> <td class="+colorPoderes[3]+">"+ reptante.poderes.esbirro_3+" </td> </tr> <tr> <th> Descripción </th> <td class="+colorPoderes[3]+"> "+reptante.poderes.efecto_3+" </td> </tr> <tr> <th> Poder costo 2 </th> <td class="+colorPoderes[2]+">"+ reptante.poderes.nombre_2 +" ("+ reptante.poderes.tipo_2 +")"+" </td> </tr> <tr> <th> Tipo Esbirro </th> <td class="+colorPoderes[2]+">"+ reptante.poderes.esbirro_2+" </td> </tr> <tr> <th > Descripción </th> <td class="+colorPoderes[2]+"> "+reptante.poderes.efecto_2+" </td> </tr> <tr> <th> Poder costo 1 </th> <td class="+colorPoderes[1]+">"+ reptante.poderes.nombre_1 +" ("+ reptante.poderes.tipo_1 +")"+" </td> </tr> <tr> <th> Tipo Esbirro </th> <td class="+colorPoderes[1]+">"+ reptante.poderes.esbirro_1+" </td> </tr> <tr> <th> Descripción </th> <td class="+colorPoderes[1]+"> "+reptante.poderes.efecto_1+" </td> </tr> <tr> <th> Poder costo 0 </th> <td class="+colorPoderes[0]+">"+ reptante.poderes.nombre_0 +" ("+ reptante.poderes.tipo_0 +")"+" </td> </tr> <tr> <th> Tipo Esbirro </th> <td class="+colorPoderes[0]+">"+ reptante.poderes.esbirro_0+" </td> </tr> <tr> <th> Descripción </th> <td class="+colorPoderes[0]+"> "+reptante.poderes.efecto_0+" </td> </tr> </table> </div> <br>";
+            reptantesVistos.innerHTML += `
+    <div class='col-md-4 mb-4'>
+        <table class='table table-dark'>
+            <tr>
+                <th>Nombre</th>
+                <td>
+                    <a href="${reptante.wiki}">
+                        ${reptante.nombre}
+                        <br>
+                        <img class='img-thumbnail' src="${reptante.imagen}" alt="${reptante.nombre}">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th>Edición</th>
+                <td>${reptante.edición}</td>
+            </tr>
+            <tr>
+                <th>Número</th>
+                <td>${reptante.número}</td>
+            </tr>
+            <tr>
+                <th>Rareza</th>
+                <td>${reptante.rareza}</td>
+            </tr>
+            <tr>
+                <th>Especialidad</th>
+                <td class="${asignarColor(reptante.especialidad)}">${reptante.especialidad}</td>
+            </tr>
+            <tr>
+                <th>Artista</th>
+                <td>${reptante.artista}</td>
+            </tr>
+            <tr>
+                <th>Poder costo 4</th>
+                <td class="${colorPoderes[4]}">${reptante.poderes.nombre_4} (${reptante.poderes.tipo_4})</td>
+            </tr>
+            <tr>
+                <th>Tipo Esbirro</th>
+                <td class="${colorPoderes[4]}">${reptante.poderes.esbirro_4}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td class="${colorPoderes[4]}">${reptante.poderes.efecto_4}</td>
+            </tr>
+            <tr>
+                <th>Poder costo 3</th>
+                <td class="${colorPoderes[3]}">${reptante.poderes.nombre_3} (${reptante.poderes.tipo_3})</td>
+            </tr>
+            <tr>
+                <th>Tipo Esbirro</th>
+                <td class="${colorPoderes[3]}">${reptante.poderes.esbirro_3}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td class="${colorPoderes[3]}">${reptante.poderes.efecto_3}</td>
+            </tr>
+            <tr>
+                <th>Poder costo 2</th>
+                <td class="${colorPoderes[2]}">${reptante.poderes.nombre_2} (${reptante.poderes.tipo_2})</td>
+            </tr>
+            <tr>
+                <th>Tipo Esbirro</th>
+                <td class="${colorPoderes[2]}">${reptante.poderes.esbirro_2}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td class="${colorPoderes[2]}">${reptante.poderes.efecto_2}</td>
+            </tr>
+            <tr>
+                <th>Poder costo 1</th>
+                <td class="${colorPoderes[1]}">${reptante.poderes.nombre_1} (${reptante.poderes.tipo_1})</td>
+            </tr>
+            <tr>
+                <th>Tipo Esbirro</th>
+                <td class="${colorPoderes[1]}">${reptante.poderes.esbirro_1}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td class="${colorPoderes[1]}">${reptante.poderes.efecto_1}</td>
+            </tr>
+            <tr>
+                <th>Poder costo 0</th>
+                <td class="${colorPoderes[0]}">${reptante.poderes.nombre_0} (${reptante.poderes.tipo_0})</td>
+            </tr>
+            <tr>
+                <th>Tipo Esbirro</th>
+                <td class="${colorPoderes[0]}">${reptante.poderes.esbirro_0}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td class="${colorPoderes[0]}">${reptante.poderes.efecto_0}</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+`;
             mostrados++;
         }
         });
         document.getElementById("cantMostrados").innerHTML = "Resultados "+mostrados;
 }
-
