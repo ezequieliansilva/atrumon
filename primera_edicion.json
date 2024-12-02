@@ -2947,5 +2947,41 @@
   "tipo_0": "Ataque",
   "efecto_0": "Haz 2 de daño a un oponente."
       }
+    },
+  {
+      "nombre": "Tumar, Eternodurmiente",
+      "wiki": "https://atrum-arena.fandom.com/es/wiki/Tumar_Eternodurmiente",
+      "imagen":"imagenes/Tumar_Eternodurmiente",
+      "edición": "Aniversario",
+      "rareza": "Ónix",
+      "especialidad": "Zombie",
+      "artista": "Nicolas Urse",
+      "poderes": {
+        "nombre_4": "Proyectil Espiritual",
+  "costo_4": "4",
+  "esbirro_4": "Cualquiera",
+  "tipo_4": "Táctico",
+  "efecto_4": "Haz 4 de daño a un oponente.",
+  "nombre_3": "Sueños de los tiempos antiguos ✭",
+  "costo_3": "3",
+  "esbirro_3": "Caído",
+  "tipo_3": "Táctico",
+  "efecto_3": "Elige un tipo de esbirro. Roba 1 esbirro del tope de la fosa por cada esbirro del tipo elegido que haya en el Vertedero.",
+  "nombre_2": "Muro de Cadáveres",
+  "costo_2": "2",
+  "esbirro_2": "Zombie",
+  "tipo_2": "Defensa",
+  "efecto_2": "Prevén hasta 3 de daño de un Poder de Ataque.",
+  "nombre_1": "Ingredientes Siniestros ★",
+  "costo_1": "1",
+  "esbirro_1": "Esqueleto",
+  "tipo_1": "Táctico",
+  "efecto_1": "Roba 1 Esbirro del tope de la Fosa y colócalo en tu Altar.",
+  "nombre_0": "Hedor Distractor",
+  "costo_0": "0",
+  "esbirro_0": "Zombie",
+  "tipo_0": "Táctico",
+  "efecto_0": "Anula el efecto del Poder de un oponente con Coste 0 o 1."
     }
+  }
   ]
